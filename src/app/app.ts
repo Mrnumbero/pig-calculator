@@ -47,9 +47,6 @@ export function calculate(): void {
         parseFloat((document.getElementById('half2') as HTMLInputElement).value),
         parseFloat((document.getElementById('price3') as HTMLInputElement).value)
     ];
-    if (half3 !== 0) {
-        prices[2] = half3;
-    }
 
     const remains = weights.map(w => (w * 0.92).toFixed(1));
     const losses = weights.map((w, i) => (w - parseFloat(remains[i])).toFixed(1));
@@ -62,7 +59,7 @@ export function calculate(): void {
     (document.getElementById('loss3') as HTMLElement).innerText = losses[2];
 
     const lossCost1 = (parseFloat(losses[0]) * prices[0]).toFixed(2);
-    const lossCost2 = (parseFloat(losses[1]) * prices[1]).toFixed(2);
+    const lossCost2 = "0.00"; // Assuming no loss cost for second pig
     const lossCost3 = (parseFloat(losses[2]) * prices[2]).toFixed(2);
     (document.getElementById('lossCost1') as HTMLElement).innerText = lossCost1;
     (document.getElementById('lossCost2') as HTMLElement).innerText = lossCost2;
@@ -83,7 +80,7 @@ export function calculate(): void {
     (document.getElementById('totalHidden3') as HTMLElement).innerText = hidden3.toFixed(2);
 
     const pigCost1 = (weights[0] * prices[0]).toFixed(2);
-    const pigCost2 = (weights[1] * prices[1]).toFixed(2);
+    const pigCost2 = (weights[1] * prices[1] * 0.92).toFixed(2);
     const pigCost3 = (weights[2] * prices[2]).toFixed(2);
     (document.getElementById('pigCost1') as HTMLElement).innerText = pigCost1;
     (document.getElementById('pigCost2') as HTMLElement).innerText = pigCost2;
