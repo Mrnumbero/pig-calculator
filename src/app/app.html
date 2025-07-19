@@ -16,25 +16,25 @@
         <th>รายการ</th>
         <th>หมูลูกค้า</th>
         <th>หมู CP</th>
-        <th>ตัวที่ 3</th>
+        <th>หมูอื่นๆ</th>
     </tr>
     <tr>
         <td>น้ำหนักหมูเป็น (กก.)</td>
         <td><input type="number" id="weight1" value="115"></td>
         <td><input type="number" id="weight2" value="115"></td>
-        <td><input type="number" id="weight3" value="115"></td>
+        <td><input type="number" id="weight3" value="0"></td>
     </tr>
     <tr>
         <td>ราคาหมูเป็น (บาท)</td>
         <td><input type="number" id="price1" value="77"></td>
-        <td><input type="number" id="price2" value="77"></td>
+        <td><input type="number" id="price2" readonly></td>
         <td><input type="number" id="price3" value="0"></td>
     </tr>
     <tr>
         <td>ราคาหมูซีกรวมหัวเครื่องใน (บาท)</td>
-        <td><input type="number" id="half1" value="0"></td>
-        <td><input type="number" id="half2" value="0"></td>
-        <td><input type="number" id="half3" value="85"></td>
+        <td><input type="number" id="half1" readonly></td>
+        <td><input type="number" id="half2" value="85"></td>
+        <td><input type="number" id="half3" value="0"></td>
     </tr>
 </table>
 
@@ -44,7 +44,7 @@
         <th>รายการ</th>
         <th>หมูลูกค้า</th>
         <th>หมู CP</th>
-        <th>ตัวที่ 3</th>
+        <th>หมูอื่นๆ</th>
     </tr>
     <tr>
         <td>น้ำหนักคงเหลือหลังจากเข้าเชือด</td>
@@ -67,53 +67,62 @@
         <th>คำอธิบาย</th>
         <th>ต้นทุนแฝง (บาท) หมูลูกค้า</th>
         <th>ต้นทุนแฝง (บาท) หมู CP</th>
+        <th>ต้นทุนแฝง (บาท) หมูอื่นๆ</th>
     </tr>
     <tr>
         <td>ค่าน้ำแข็ง</td>
         <td>ต้นทุนเพิ่มจากการใช้/ซื้อ/ใส่น้ำแข็งเพื่อถนอมเนื้อ</td>
         <td><input type="number" id="ice1" value="0"></td>
         <td><input type="number" id="ice2" value="0"></td>
+        <td><input type="number" id="ice3" value="0"></td>
     </tr>
     <tr>
         <td>ค่าจ้างเชือด</td>
         <td>ค่าจ้างแรงงานในการเชือดจัดการหมูเป็น</td>
         <td><input type="number" id="slaughter1" value="0"></td>
         <td><input type="number" id="slaughter2" value="0"></td>
+        <td><input type="number" id="slaughter3" value="0"></td>
     </tr>
     <tr>
         <td>ค่าตัดแต่ง</td>
         <td>ค่าใช้ในการตัดแต่งหมูเพิ่มเติม</td>
         <td><input type="number" id="trim1" value="0"></td>
         <td><input type="number" id="trim2" value="0"></td>
+        <td><input type="number" id="trim3" value="0"></td>
     </tr>
     <tr>
         <td>ค่าขนส่ง</td>
         <td>ค่าขนส่งจากโรงเชือดถึงร้านค้า</td>
         <td><input type="number" id="transport1" value="0"></td>
         <td><input type="number" id="transport2" value="0"></td>
+        <td><input type="number" id="transport3" value="0"></td>
     </tr>
     <tr>
         <td>ค่าจ้างคนงาน</td>
         <td>ค่าจ้างแรงงานเพิ่มเติม เช่นพนักงานขับรถส่งหมู</td>
         <td><input type="number" id="worker1" value="0"></td>
         <td><input type="number" id="worker2" value="0"></td>
+        <td><input type="number" id="worker3" value="0"></td>
     </tr>
     <tr>
         <td>น้ำหนักสูญหาย</td>
         <td>น้ำหนักที่สูญหายคูณด้วยราคาต่อกิโลกรัม</td>
         <td id="lossCost1">0</td>
         <td id="lossCost2">0</td>
+        <td id="lossCost3">0</td>
     </tr>
     <tr>
         <td>ค่าใช้จ่ายอื่นๆ</td>
         <td>ค่าใช้จ่ายอื่นที่ไม่ได้ถูกระบุในนี้</td>
         <td><input type="number" id="other1" value="0"></td>
         <td><input type="number" id="other2" value="0"></td>
+        <td><input type="number" id="other3" value="0"></td>    
     </tr>
     <tr>
         <th colspan="2">รวมต้นทุนแฝง</th>
         <th id="totalHidden1">0</th>
         <th id="totalHidden2">0</th>
+        <th id="totalHidden3">0</th>
     </tr>
 </table>
 
@@ -124,29 +133,32 @@
         <th>รายละเอียด</th>
         <th>ราคา (บาท) หมูลูกค้า</th>
         <th>ราคา (บาท) หมู CP</th>
+        <th>ราคา (บาท) หมู อื่นๆ</th>
     </tr>
     <tr>
         <td>หมู</td>
         <td>ราคาหมูเป็นคูณกับน้ำหนักหมูเป็นก่อนเข้าเชือด</td>
         <td id="pigCost1">0</td>
         <td id="pigCost2">0</td>
+        <td id="pigCost3">0</td>
     </tr>
     <tr>
         <td>ต้นทุนแฝง</td>
         <td>มูลค่าต้นทุนแฝงทั้งหมด</td>
         <td id="hiddenCost1">0</td>
         <td id="hiddenCost2">0</td>
+        <td id="hiddenCost3">0</td>
     </tr>
     <tr>
         <th colspan="2">รวมต้นทุนหมูเป็น (ต่อตัว)</th>
         <th id="totalCost1">0</th>
         <th id="totalCost2">0</th>
+        <th id="totalCost3">0</th>
     </tr>
 </table>
 
 <button onclick="calculate()">คำนวณ</button>
 
 <script src="app.ts"></script>
-
 </body>
 </html>
