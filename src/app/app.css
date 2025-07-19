@@ -1,7 +1,33 @@
-body { font-family: sans-serif; margin: 20px; }
-table { border-collapse: collapse; width: 100%; margin-bottom: 20px; }
-th, td { border: 1px solid #ccc; padding: 8px; text-align: center; }
-th { background-color: #f2f2f2; }
-input[type="number"] { width: 80px; }
-.section-title { font-weight: bold; margin-top: 30px; font-size: 18px; }
-button { padding: 10px 20px; margin-top: 10px; }
+body {
+    font-family: 'Sarabun', Arial, sans-serif;
+    background: #f8f8f8;
+    margin: 0;
+    padding: 0;
+}
+.section-title {
+    margin-top: 24px;
+    font-weight: bold;
+    font-size: 1.2em;
+}
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-bottom: 20px;
+    background: #fff;
+}
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+th {
+    background: #f0f0f0;
+}
+input[type="number"] {
+    width: 80px;
+    padding: 4px;
+}
+button {
+    padding: 8px 16px;
+    font-size: 1em;
+    margin-top: 16px;
+}
