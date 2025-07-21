@@ -10,7 +10,7 @@
 
 <h2>โปรแกรมคำนวณต้นทุนหมูเป็น</h2>
 
-<div class="section-title">ข้อมูลหมูเป็น</div>
+<div class="section-title">ข้อมูลหมู</div>
 <table>
     <tr>
         <th>รายการ</th>
@@ -21,18 +21,24 @@
     <tr>
         <td>น้ำหนักหมูเป็น (กก.)</td>
         <td><input type="number" id="weight1" value="115"></td>
-        <td><input type="number" id="weight2" value="115"></td>
+        <td><input type="number" id="weight2" value="0" readonly></td>
         <td><input type="number" id="weight3" value="0"></td>
+    </tr>
+    <tr>
+        <td>น้ำหนักหมูซีก CP (กก.)</td>
+        <td><input type="number" id="weightcp1" value="0" readonly></td>
+        <td><input type="number" id="weightcp2" value="115"></td>
+        <td><input type="number" id="weightcp3" value="0"></td>
     </tr>
     <tr>
         <td>ราคาหมูเป็น (บาท)</td>
         <td><input type="number" id="price1" value="77"></td>
-        <td><input type="number" id="price2" readonly></td>
+        <td><input type="number" id="price2" value="0" readonly></td>
         <td><input type="number" id="price3" value="0"></td>
     </tr>
     <tr>
         <td>ราคาหมูซีกรวมหัวเครื่องใน (บาท)</td>
-        <td><input type="number" id="half1" readonly></td>
+        <td><input type="number" id="half1" value="0" readonly></td>
         <td><input type="number" id="half2" value="85"></td>
         <td><input type="number" id="half3" value="0"></td>
     </tr>
@@ -48,15 +54,21 @@
     </tr>
     <tr>
         <td>น้ำหนักคงเหลือหลังจากเข้าเชือด</td>
-        <td id="remain1">-</td>
-        <td id="remain2">-</td>
-        <td id="remain3">-</td>
+        <td id="remain1">0</td>
+        <td id="remain2">0</td>
+        <td id="remain3">0</td>
     </tr>
     <tr>
         <td>น้ำหนักสูญหาย</td>
-        <td id="loss1">-</td>
-        <td id="loss2">-</td>
-        <td id="loss3">-</td>
+        <td id="loss1">0</td>
+        <td id="loss2">0</td>
+        <td id="loss3">0</td>
+    </tr>
+    <tr>
+        <th>มูลค่าที่สูญหาย (บาท)</th>
+        <th id="lossCost1">0</th>
+        <th id="lossCost2">0</th>
+        <th id="lossCost3">0</th>
     </tr>
 </table>
 
@@ -105,13 +117,6 @@
         <td><input type="number" id="worker3" value="0"></td>
     </tr>
     <tr>
-        <td>น้ำหนักสูญหาย</td>
-        <td>น้ำหนักที่สูญหายคูณด้วยราคาต่อกิโลกรัม</td>
-        <td id="lossCost1">0</td>
-        <td id="lossCost2">0</td>
-        <td id="lossCost3">0</td>
-    </tr>
-    <tr>
         <td>ค่าใช้จ่ายอื่นๆ</td>
         <td>ค่าใช้จ่ายอื่นที่ไม่ได้ถูกระบุในนี้</td>
         <td><input type="number" id="other1" value="0"></td>
@@ -126,7 +131,7 @@
     </tr>
 </table>
 
-<div class="section-title">สรุปค่าใช้จ่ายหมูเป็น</div>
+<div class="section-title">สรุปค่าใช้จ่ายหมู</div>
 <table>
     <tr>
         <th>รายการ</th>
