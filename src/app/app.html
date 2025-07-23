@@ -8,126 +8,138 @@
 </head>
 <body>
 
-<h2>โปรแกรมคำนวณต้นทุนหมูเป็น</h2>
+<div class="title-row">
+  <h2>โปรแกรมคำนวณต้นทุนหมู</h2>
+  <img src="assets/Picture1.png" alt="icon" class="title-img">
+</div>
 
 <div class="section-title">ข้อมูลหมู</div>
 <table>
     <tr>
         <th>รายการ</th>
-        <th>หมูลูกค้า</th>
-        <th>หมู CP</th>
-        <th>หมูอื่นๆ</th>
+        <th class="col-customer">หมูลูกค้า</th>
+        <th class="col-cp">หมู CP</th>
+        <th class="col-other">หมูอื่นๆ</th>
     </tr>
     <tr>
         <td>น้ำหนักหมูเป็น (กก.)</td>
-        <td><input type="number" id="weight1" value="115"></td>
-        <td><input type="number" id="weight2" value="0" readonly></td>
-        <td><input type="number" id="weight3" value="0"></td>
+        <td class="col-customer"><input type="number" id="weight1" value="115"></td>
+        <td class="col-cp"><input type="number" id="weight2" value="0" readonly></td>
+        <td class="col-other"><input type="number" id="weight3" value="0"></td>
     </tr>
     <tr>
-        <td>น้ำหนักหมูซีก CP (กก.)</td>
-        <td><input type="number" id="weightcp1" value="0" readonly></td>
-        <td><input type="number" id="weightcp2" value="115"></td>
-        <td><input type="number" id="weightcp3" value="0"></td>
+        <td>น้ำหนักหมูซีกรวมหัวเครื่องใน CP (กก.)</td>
+        <td class="col-customer"><input type="number" id="weightcp1" value="0" readonly></td>
+        <td class="col-cp"><input type="number" id="weightcp2" value="115"></td>
+        <td class="col-other"><input type="number" id="weightcp3" value="0"></td>
     </tr>
     <tr>
         <td>ราคาหมูเป็น (บาท)</td>
-        <td><input type="number" id="price1" value="77"></td>
-        <td><input type="number" id="price2" value="0" readonly></td>
-        <td><input type="number" id="price3" value="0"></td>
+        <td class="col-customer"><input type="number" id="price1" value="77"></td>
+        <td class="col-cp"><input type="number" id="price2" value="0" readonly></td>
+        <td class="col-other"><input type="number" id="price3" value="0"></td>
     </tr>
     <tr>
-        <td>ราคาหมูซีกรวมหัวเครื่องใน (บาท)</td>
-        <td><input type="number" id="half1" value="0" readonly></td>
-        <td><input type="number" id="half2" value="85"></td>
-        <td><input type="number" id="half3" value="0"></td>
+        <td>ราคาหมูซีกรวมหัวเครื่องใน CP (บาท)</td>
+        <td class="col-customer"><input type="number" id="half1" value="0" readonly></td>
+        <td class="col-cp"><input type="number" id="half2" value="85"></td>
+        <td class="col-other"><input type="number" id="half3" value="0"></td>
     </tr>
 </table>
+
+<button onclick="calculate()">คำนวณ</button>
 
 <div class="section-title">น้ำหนักที่ได้ (กก.)</div>
 <table>
     <tr>
         <th>รายการ</th>
-        <th>หมูลูกค้า</th>
-        <th>หมู CP</th>
-        <th>หมูอื่นๆ</th>
+        <th class="col-customer">หมูลูกค้า</th>
+        <th class="col-cp">หมู CP</th>
+        <th class="col-other">หมูอื่นๆ</th>
     </tr>
     <tr>
         <td>น้ำหนักคงเหลือหลังจากเข้าเชือด</td>
-        <td id="remain1">0</td>
-        <td id="remain2">0</td>
-        <td id="remain3">0</td>
+        <td class="col-customer" id="remain1">0</td>
+        <td class="col-cp" id="remain2">0</td>
+        <td class="col-other" id="remain3">0</td>
     </tr>
     <tr>
         <td>น้ำหนักสูญหาย</td>
-        <td id="loss1">0</td>
-        <td id="loss2">0</td>
-        <td id="loss3">0</td>
+        <td class="col-customer" id="loss1">0</td>
+        <td class="col-cp" id="loss2">0</td>
+        <td class="col-other" id="loss3">0</td>
     </tr>
     <tr>
         <th>มูลค่าที่สูญหาย (บาท)</th>
-        <th id="lossCost1">0</th>
-        <th id="lossCost2">0</th>
-        <th id="lossCost3">0</th>
+        <th class="col-customer" id="lossCost1">0</th>
+        <th class="col-cp" id="lossCost2">0</th>
+        <th class="col-other" id="lossCost3">0</th>
     </tr>
 </table>
+
+<div class="note">
+  <strong>หมายเหตุ:</strong>
+  โดยทั่วไปหมูเป็นจะสูญเสียน้ำหนักประมาณ <span class="red-underline"><strong>8%</strong></span> ระหว่างขั้นตอนการเชือด
+  จาก <span class="red-underline">เลือด ขน กีบ และของเสียต่างๆ</span> ทำให้น้ำหนักสุทธิเหลือประมาณ <strong>92%</strong>
+  ของน้ำหนักหมูเป็น
+</div>
 
 <div class="section-title">รายการต้นทุนแฝง</div>
 <table>
     <tr>
         <th>รายการ</th>
         <th>คำอธิบาย</th>
-        <th>ต้นทุนแฝง (บาท) หมูลูกค้า</th>
-        <th>ต้นทุนแฝง (บาท) หมู CP</th>
-        <th>ต้นทุนแฝง (บาท) หมูอื่นๆ</th>
+        <th class="col-customer">ต้นทุนแฝง (บาท) หมูลูกค้า</th>
+        <th class="col-cp">ต้นทุนแฝง (บาท) หมู CP</th>
+        <th class="col-other">ต้นทุนแฝง (บาท) หมูอื่นๆ</th>
     </tr>
     <tr>
         <td>ค่าน้ำแข็ง</td>
         <td>ต้นทุนเพิ่มจากการใช้/ซื้อ/ใส่น้ำแข็งเพื่อถนอมเนื้อ</td>
-        <td><input type="number" id="ice1" value="0"></td>
-        <td><input type="number" id="ice2" value="0"></td>
-        <td><input type="number" id="ice3" value="0"></td>
+        <td class="col-customer"><input type="number" id="ice1" value="0"></td>
+        <td class="col-cp"><input type="number" id="ice2" value="0"></td>
+        <td class="col-other"><input type="number" id="ice3" value="0"></td>
     </tr>
     <tr>
         <td>ค่าจ้างเชือด</td>
         <td>ค่าจ้างแรงงานในการเชือดจัดการหมูเป็น</td>
-        <td><input type="number" id="slaughter1" value="0"></td>
-        <td><input type="number" id="slaughter2" value="0"></td>
-        <td><input type="number" id="slaughter3" value="0"></td>
+        <td class="col-customer"><input type="number" id="slaughter1" value="0"></td>
+        <td class="col-cp"><input type="number" id="slaughter2" value="0"></td>
+        <td class="col-other"><input type="number" id="slaughter3" value="0"></td>
     </tr>
     <tr>
         <td>ค่าตัดแต่ง</td>
         <td>ค่าใช้ในการตัดแต่งหมูเพิ่มเติม</td>
-        <td><input type="number" id="trim1" value="0"></td>
-        <td><input type="number" id="trim2" value="0"></td>
-        <td><input type="number" id="trim3" value="0"></td>
+        <td class="col-customer"><input type="number" id="trim1" value="0"></td>
+        <td class="col-cp"><input type="number" id="trim2" value="0"></td>
+        <td class="col-other"><input type="number" id="trim3" value="0"></td>
     </tr>
     <tr>
         <td>ค่าขนส่ง</td>
         <td>ค่าขนส่งจากโรงเชือดถึงร้านค้า</td>
-        <td><input type="number" id="transport1" value="0"></td>
-        <td><input type="number" id="transport2" value="0"></td>
-        <td><input type="number" id="transport3" value="0"></td>
+        <td class="col-customer"><input type="number" id="transport1" value="0"></td>
+        <td class="col-cp"><input type="number" id="transport2" value="0"></td>
+        <td class="col-other"><input type="number" id="transport3" value="0"></td>
     </tr>
     <tr>
         <td>ค่าจ้างคนงาน</td>
         <td>ค่าจ้างแรงงานเพิ่มเติม เช่นพนักงานขับรถส่งหมู</td>
-        <td><input type="number" id="worker1" value="0"></td>
-        <td><input type="number" id="worker2" value="0"></td>
-        <td><input type="number" id="worker3" value="0"></td>
+        <td class="col-customer"><input type="number" id="worker1" value="0"></td>
+        <td class="col-cp"><input type="number" id="worker2" value="0"></td>
+        <td class="col-other"><input type="number" id="worker3" value="0"></td>
     </tr>
     <tr>
         <td>ค่าใช้จ่ายอื่นๆ</td>
         <td>ค่าใช้จ่ายอื่นที่ไม่ได้ถูกระบุในนี้</td>
-        <td><input type="number" id="other1" value="0"></td>
-        <td><input type="number" id="other2" value="0"></td>
-        <td><input type="number" id="other3" value="0"></td>    
+        <td class="col-customer"><input type="number" id="other1" value="0"></td>
+        <td class="col-cp"><input type="number" id="other2" value="0"></td>
+        <td class="col-other"><input type="number" id="other3" value="0"></td>    
     </tr>
     <tr>
         <th colspan="2">รวมต้นทุนแฝง</th>
-        <th id="totalHidden1">0</th>
-        <th id="totalHidden2">0</th>
-        <th id="totalHidden3">0</th>
+        <th class="col-customer" id="totalHidden1">0</th>
+        <th class="col-cp" id="totalHidden2">0</th>
+        <th class="col-other" id="totalHidden3">0</th>
     </tr>
 </table>
 
@@ -136,33 +148,32 @@
     <tr>
         <th>รายการ</th>
         <th>รายละเอียด</th>
-        <th>ราคา (บาท) หมูเป็นก่อนเข้าเชือด</th>
-        <th>ราคา (บาท) หมูซีก CP</th>
-        <th>ราคา (บาท) หมู อื่นๆ</th>
+        <th class="col-customer">ราคา (บาท) หมูเป็นก่อนเข้าเชือด</th>
+        <th class="col-cp">ราคา (บาท) หมูซีก CP</th>
+        <th class="col-other">ราคา (บาท) หมู อื่นๆ</th>
     </tr>
     <tr>
         <td>หมู</td>
-        <td>ราคาหมูคูณกับน้ำหนักหมู</td>
-        <td id="pigCost1">0</td>
-        <td id="pigCost2">0</td>
-        <td id="pigCost3">0</td>
+        <td>ราคาหมู x น้ำหนักหมู</td>
+        <td class="col-customer" id="pigCost1">0</td>
+        <td class="col-cp" id="pigCost2">0</td>
+        <td class="col-other" id="pigCost3">0</td>
     </tr>
     <tr>
         <td>ต้นทุนแฝง</td>
         <td>มูลค่าต้นทุนแฝงทั้งหมด</td>
-        <td id="hiddenCost1">0</td>
-        <td id="hiddenCost2">0</td>
-        <td id="hiddenCost3">0</td>
+        <td class="col-customer" id="hiddenCost1">0</td>
+        <td class="col-cp" id="hiddenCost2">0</td>
+        <td class="col-other" id="hiddenCost3">0</td>
     </tr>
     <tr>
         <th colspan="2">รวมต้นทุนหมูเป็น (ต่อตัว)</th>
-        <th id="totalCost1">0</th>
-        <th id="totalCost2">0</th>
-        <th id="totalCost3">0</th>
+        <th class="col-customer" id="totalCost1">0</th>
+        <th class="col-cp" id="totalCost2">0</th>
+        <th class="col-other" id="totalCost3">0</th>
     </tr>
 </table>
 
-<button onclick="calculate()">คำนวณ</button>
 
 <script src="app.ts"></script>
 </body>

@@ -1,72 +1,165 @@
 body {
-    font-family: 'Sarabun', Arial, sans-serif;
-    background: #f8f8f8;
-    margin: 0;
-    padding: 0;
-}
-.section-title {
-    margin-top: 24px;
-    font-weight: bold;
-    font-size: 1.2em;
-}
-table {
-    border-collapse: collapse;
-    width: 100%;
-    margin-bottom: 20px;
-    background: #fff;
-}
-th, td {
-    border: 1px solid #ddd;
-    padding: 8px;
-}
-th {
-    background: #f0f0f0;
-}
-input[type="number"] {
-    width: 80px;
-    padding: 4px;
-}
-button {
-    padding: 8px 16px;
-    font-size: 1em;
-    margin-top: 16px;
+  font-family: 'Sarabun', 'Prompt', 'Noto Sans Thai', Arial, sans-serif;
+  background: #f5f5f5;
+  margin: 0;
+  padding: 0;
+  color: #333333;
+  line-height: 1.6;
+  font-size: 16px;
 }
 
-/* Remove number input spinners for price2, half1, ice2, slaughter2, trim2, transport2, worker2, other2 */
-input[type="number"]#price2::-webkit-outer-spin-button,
-input[type="number"]#price2::-webkit-inner-spin-button,
-input[type="number"]#half1::-webkit-outer-spin-button,
-input[type="number"]#half1::-webkit-inner-spin-button,
-input[type="number"]#ice2::-webkit-outer-spin-button,
-input[type="number"]#ice2::-webkit-inner-spin-button,
-input[type="number"]#slaughter2::-webkit-outer-spin-button,
-input[type="number"]#slaughter2::-webkit-inner-spin-button,
-input[type="number"]#trim2::-webkit-outer-spin-button,
-input[type="number"]#trim2::-webkit-inner-spin-button,
-input[type="number"]#transport2::-webkit-outer-spin-button,
-input[type="number"]#transport2::-webkit-inner-spin-button,
-input[type="number"]#worker2::-webkit-outer-spin-button,
-input[type="number"]#worker2::-webkit-inner-spin-button,
-input[type="number"]#other2::-webkit-outer-spin-button,
-input[type="number"]#other2::-webkit-inner-spin-button,
-input[type="number"]#weightcp1::-webkit-outer-spin-button,
-input[type="number"]#weightcp1::-webkit-inner-spin-button,
-input[type="number"]#weight2::-webkit-outer-spin-button,
-input[type="number"]#weight2::-webkit-inner-spin-button 
- {
+.section-title {
+  margin-top: 32px;
+  margin-bottom: 16px;
+  font-weight: bold;
+  font-size: 1.2em;
+  color: #004D99; /* หัวข้อรอง */
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin-bottom: 32px;
+  background: #ffffff;
+  border: 1px solid #CCCCCC;
+}
+
+th, td {
+  border: 1px solid #CCCCCC;
+  padding: 12px;
+  text-align: left;
+}
+
+th {
+  background: #f0f0f0;
+  color: #004D99;
+  font-weight: bold;
+}
+
+input[type="number"] {
+  width: 100%;
+  max-width: 100px;
+  padding: 8px;
+  background: #ffffff;
+  border: 1px solid #CCCCCC;
+  border-radius: 4px;
+  font-size: 1em;
+  box-sizing: border-box;
+  color: #333333;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
-input[type="number"]#price2,
-input[type="number"]#half1,
-input[type="number"]#ice2,
-input[type="number"]#slaughter2,
-input[type="number"]#trim2,
-input[type="number"]#transport2,
-input[type="number"]#worker2,
-input[type="number"]#other2,
-input[type="number"]#weightcp1,
-input[type="number"]#weight2 
-{
+
+input[type="number"] {
   -moz-appearance: textfield;
+}
+
+button {
+  padding: 12px 24px;
+  font-size: 1em;
+  background-color: #D2232A;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-top: 24px;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #b11d24;
+}
+
+.note {
+  background-color: #f0f0f0;
+  color: #333333;
+  padding: 20px;
+  border: 1px solid #CCCCCC;
+  border-radius: 6px;
+  font-size: 1rem;
+  margin-top: 1.5rem;
+}
+
+.red-underline {
+  color: red;
+  text-decoration: underline;
+}
+
+.title-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 32px;
+  margin-bottom: 24px;
+  position: relative;
+  background-color: #ffffff;
+  padding: 16px;
+  border-bottom: 2px solid #CCCCCC;
+}
+
+.title-row h2 {
+  margin: 0 auto;
+  flex: 0 1 auto;
+  text-align: center;
+  width: 100%;
+  color: #D2232A;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.title-img {
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 80px;
+}
+
+/* สีหัวตาราง */
+th.col-customer {
+  background-color: #BBDEFB; /* ฟ้าอ่อน */
+}
+
+th.col-cp {
+  background-color: #C8E6C9; /* เขียวอ่อน */
+}
+
+th.col-other {
+  background-color: #FFF9C4; /* เหลืองอ่อน */
+}
+
+/* สีเซลล์ข้อมูล */
+td.col-customer,
+td.col-customer input {
+  background-color: #E3F2FD;
+}
+
+td.col-cp,
+td.col-cp input {
+  background-color: #E8F5E9;
+}
+
+td.col-other,
+td.col-other input {
+  background-color: #FFFDE7;
+}
+
+
+/* Responsive for iPad */
+@media screen and (max-width: 1024px) {
+  body {
+    font-size: 15px;
+  }
+
+  input[type="number"] {
+    max-width: 100%;
+  }
+
+  .title-img {
+    height: 60px;
+  }
 }
