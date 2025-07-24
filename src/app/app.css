@@ -160,5 +160,15 @@ td.col-other {
   text-align: center;
 }
 
-
-
+th.head-des,
+th.ice-des,
+th.em-des,
+th.cut-des,
+th.trans-des,
+td.emp-des,
+th.other-des,
+td.fcost-detail,
+th.fcost-price,
+td.fcost-hidden {
+  width: 30%;
+}

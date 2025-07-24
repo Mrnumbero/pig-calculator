@@ -85,43 +85,43 @@
 <table class="hidden-cost-table">
     <tr>
         <th>รายการ</th>
-        <th>คำอธิบาย</th>
+        <th class="head-des">คำอธิบาย</th>
         <th class="col-customer">ต้นทุนแฝง (บาท) หมูเป็น</th>
         <th class="col-cp">ต้นทุนแฝง (บาท) หมูซีกรวมหัวเครื่องใน CP</th>
     </tr>
     <tr>
         <td>ค่าน้ำแข็ง</td>
-        <td>ต้นทุนเพิ่มจากการใช้/ซื้อ/ใส่น้ำแข็งเพื่อถนอมเนื้อหมู</td>
+        <td class="ice-des">ต้นทุนเพิ่มจากการใช้/ซื้อ/ใส่น้ำแข็งเพื่อถนอมเนื้อหมู</td>
         <td class="col-customer"><input type="number" id="ice1" value="0"></td>
         <td class="col-cp"><input type="number" id="ice2" value="0"></td>
     </tr>
     <tr>
         <td>ค่าจ้างเชือด</td>
-        <td>ค่าจ้างแรงงานในการเชือดจัดการหมูเป็น</td>
+        <td class="em-des">ค่าจ้างแรงงานในการเชือดจัดการหมูเป็น</td>
         <td class="col-customer"><input type="number" id="slaughter1" value="0"></td>
         <td class="col-cp"><input type="number" id="slaughter2" value="0"></td>
     </tr>
     <tr>
         <td>ค่าตัดแต่ง</td>
-        <td>ค่าใช้ในการตัดแต่งหมูเพิ่มเติม</td>
+        <td class="cut-des">ค่าใช้ในการตัดแต่งหมูเพิ่มเติม</td>
         <td class="col-customer"><input type="number" id="trim1" value="0"></td>
         <td class="col-cp"><input type="number" id="trim2" value="0"></td>
     </tr>
     <tr>
         <td>ค่าขนส่ง</td>
-        <td>ค่าขนส่งจากโรงเชือดถึงร้านค้า</td>
+        <td class="trans-des">ค่าขนส่งจากโรงเชือดถึงร้านค้า</td>
         <td class="col-customer"><input type="number" id="transport1" value="0"></td>
         <td class="col-cp"><input type="number" id="transport2" value="0"></td>
     </tr>
     <tr>
         <td>ค่าจ้างคนงาน</td>
-        <td>ค่าจ้างแรงงานเพิ่มเติม เช่น พนักงานขับรถส่งหมู</td>
+        <td class="emp-des">ค่าจ้างแรงงานเพิ่มเติม เช่น พนักงานขับรถส่งหมู</td>
         <td class="col-customer"><input type="number" id="worker1" value="0"></td>
         <td class="col-cp"><input type="number" id="worker2" value="0"></td>
     </tr>
     <tr>
         <td>ค่าใช้จ่ายอื่นๆ</td>
-        <td>ค่าใช้จ่ายอื่นที่ไม่ได้ถูกระบุในนี้</td>
+        <td class="other-des">ค่าใช้จ่ายอื่นที่ไม่ได้ถูกระบุในนี้</td>
         <td class="col-customer"><input type="number" id="other1" value="0"></td>
         <td class="col-cp"><input type="number" id="other2" value="0"></td>    
     </tr>
@@ -138,19 +138,19 @@
 <table class="pig-cost-table">
     <tr>
         <th>รายการ</th>
-        <th>รายละเอียด</th>
+        <th class="fcost-detail">รายละเอียด</th>
         <th class="col-customer">ราคาหมูเป็น (บาท)</th>
         <th class="col-cp">ราคาหมูซีกรวมหัวเครื่องใน CP (บาท)</th>
     </tr>
     <tr>
         <td>หมู</td>
-        <td>ราคาหมู x น้ำหนักหมู</td>
+        <td class="fcost-price">ราคาหมู x น้ำหนักหมู</td>
         <td class="col-customer" id="pigCost1">0</td>
         <td class="col-cp" id="pigCost2">0</td>
     </tr>
     <tr>
         <td>ต้นทุนแฝง</td>
-        <td>มูลค่าต้นทุนแฝงทั้งหมด</td>
+        <td class="fcost-hidden">มูลค่าต้นทุนแฝงทั้งหมด</td>
         <td class="col-customer" id="hiddenCost1">0</td>
         <td class="col-cp" id="hiddenCost2">0</td>
     </tr>
