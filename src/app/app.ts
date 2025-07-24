@@ -72,7 +72,7 @@ export function calculate(): void {
     // (document.getElementById('totalHidden3') as HTMLElement).innerText = hidden3.toFixed(2);
 
     const pigCost1 = (weights[0] * prices[0]).toFixed(2);
-    const pigCost2 = (weights[1] * prices[1] * 0.92).toFixed(2);
+    const pigCost2 = (weights[1] * prices[1]).toFixed(2);
     // const pigCost3 = weightcp3 !== 0 ? (weights[2] * prices[2] * 0.92).toFixed(2) : (weights[2] * prices[2]).toFixed(2);
     (document.getElementById('pigCost1') as HTMLElement).innerText = pigCost1;
     (document.getElementById('pigCost2') as HTMLElement).innerText = pigCost2;
