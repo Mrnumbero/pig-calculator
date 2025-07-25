@@ -85,9 +85,16 @@ button:hover {
   margin-top: 1.5rem;
 }
 
+.black-bold {
+  color: black;
+  font-weight: bold;
+  font-size: large;
+}
+
 .red-underline {
   color: red;
   text-decoration: underline;
+  font-size: large;
 }
 
 .title-row {
