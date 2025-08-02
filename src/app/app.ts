@@ -15,6 +15,30 @@ export class App implements AfterViewInit {
     calculate();
   }
 }
+
+export function formatNumberWithComma(value: string | number): string {
+  const number = parseFloat(value.toString().replace(/,/g, ""));
+  return isNaN(number) ? "" : number.toLocaleString("th-TH",{
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2,
+  });
+}
+
+export function formatInput(input: HTMLInputElement): void {
+  const value = parseFloat(input.value.replace(/,/g, ''));
+  if (!isNaN(value)) {
+    input.value = value.toLocaleString('en-US', {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    });
+  }
+}
+
+export function unformatInput(input: HTMLInputElement): void {
+  input.value = input.value.replace(/,/g, '');
+}
+
+
 export function calculate(): void {
     // const price3Input = document.getElementById('price3') as HTMLInputElement;
     // const half3Input = document.getElementById('half3') as HTMLInputElement;
@@ -46,18 +70,18 @@ export function calculate(): void {
     const remains = weights.map(w => (w * 0.92).toFixed(1));
     const losses = weights.map((w, i) => (w - parseFloat(remains[i])).toFixed(1));
 
-    (document.getElementById('remain1') as HTMLElement).innerText = remains[0];
-    (document.getElementById('remain2') as HTMLElement).innerText = weights[1].toString();
+    (document.getElementById('remain1') as HTMLElement).innerText = formatNumberWithComma(remains[0]);
+    (document.getElementById('remain2') as HTMLElement).innerText = formatNumberWithComma(weights[1].toString());
     // (document.getElementById('remain3') as HTMLElement).innerText = weightcp3 !== 0 ? weights[2].toString() : remains[2];
-    (document.getElementById('loss1') as HTMLElement).innerText = losses[0];
+    (document.getElementById('loss1') as HTMLElement).innerText = formatNumberWithComma(losses[0]);
     (document.getElementById('loss2') as HTMLElement).innerText = '0';
     // (document.getElementById('loss3') as HTMLElement).innerText = weightcp3 !== 0 ? '0' : losses[2];
 
     const lossCost1 = (parseFloat(losses[0]) * prices[0]).toFixed(2);
     const lossCost2 = "0.00";
     // const lossCost3 = weightcp3 !== 0 ? "0.00" : (parseFloat(losses[2]) * prices[2]).toFixed(2);
-    (document.getElementById('lossCost1') as HTMLElement).innerText = lossCost1;
-    (document.getElementById('lossCost2') as HTMLElement).innerText = lossCost2;
+    (document.getElementById('lossCost1') as HTMLElement).innerText = formatNumberWithComma(lossCost1);
+    (document.getElementById('lossCost2') as HTMLElement).innerText = formatNumberWithComma(lossCost2);
     // (document.getElementById('lossCost3') as HTMLElement).innerText = lossCost3;
 
     const hidden1 = ['ice1','slaughter1','trim1','transport1','worker1','other1']
@@ -67,23 +91,23 @@ export function calculate(): void {
     // const hidden3 = ['ice3','slaughter3','trim3','transport3','worker3','other3']
     //     .reduce((sum, id) => sum + parseFloat((document.getElementById(id) as HTMLInputElement).value || '0'), 0);
 
-    (document.getElementById('totalHidden1') as HTMLElement).innerText = hidden1.toFixed(2);
-    (document.getElementById('totalHidden2') as HTMLElement).innerText = hidden2.toFixed(2);
+    (document.getElementById('totalHidden1') as HTMLElement).innerText = formatNumberWithComma(hidden1.toFixed(2));
+    (document.getElementById('totalHidden2') as HTMLElement).innerText = formatNumberWithComma(hidden2.toFixed(2));
     // (document.getElementById('totalHidden3') as HTMLElement).innerText = hidden3.toFixed(2);
 
     const pigCost1 = (weights[0] * prices[0]).toFixed(2);
     const pigCost2 = (weights[1] * prices[1]).toFixed(2);
     // const pigCost3 = weightcp3 !== 0 ? (weights[2] * prices[2] * 0.92).toFixed(2) : (weights[2] * prices[2]).toFixed(2);
-    (document.getElementById('pigCost1') as HTMLElement).innerText = pigCost1;
-    (document.getElementById('pigCost2') as HTMLElement).innerText = pigCost2;
+    (document.getElementById('pigCost1') as HTMLElement).innerText = formatNumberWithComma(pigCost1);
+    (document.getElementById('pigCost2') as HTMLElement).innerText = formatNumberWithComma(pigCost2);
     // (document.getElementById('pigCost3') as HTMLElement).innerText = pigCost3;
 
-    (document.getElementById('hiddenCost1') as HTMLElement).innerText = hidden1.toFixed(2);
-    (document.getElementById('hiddenCost2') as HTMLElement).innerText = hidden2.toFixed(2);
+    (document.getElementById('hiddenCost1') as HTMLElement).innerText = formatNumberWithComma(hidden1.toFixed(2));
+    (document.getElementById('hiddenCost2') as HTMLElement).innerText = formatNumberWithComma(hidden2.toFixed(2));
     // (document.getElementById('hiddenCost3') as HTMLElement).innerText = hidden3.toFixed(2);
 
-    (document.getElementById('totalCost1') as HTMLElement).innerText = (parseFloat(pigCost1) + hidden1).toFixed(2);
-    (document.getElementById('totalCost2') as HTMLElement).innerText = (parseFloat(pigCost2) + hidden2).toFixed(2);
+    (document.getElementById('totalCost1') as HTMLElement).innerText = formatNumberWithComma((parseFloat(pigCost1) + hidden1).toFixed(2));
+    (document.getElementById('totalCost2') as HTMLElement).innerText = formatNumberWithComma((parseFloat(pigCost2) + hidden2).toFixed(2));
     // (document.getElementById('totalCost3') as HTMLElement).innerText = (parseFloat(pigCost3) + hidden3).toFixed(2);
 }
 (window as any).calculate = calculate;
