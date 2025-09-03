@@ -118,7 +118,7 @@ button:hover {
   text-align: center;
   width: 100%;
   color: #D2232A;
-  font-size: 3rem;
+  font-size: 2rem;
   font-weight: bold;
 }
 
@@ -127,7 +127,7 @@ button:hover {
   right: 16px;
   top: 40%;
   transform: translateY(-50%);
-  height: 110px;
+  height: 90px;
 }
 
 /* สีหัวตาราง */
