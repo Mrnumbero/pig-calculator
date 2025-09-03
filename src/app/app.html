@@ -30,7 +30,7 @@
     <tr>
         <td>น้ำหนักหมูซีกรวมหัวเครื่องใน CP (กก.)</td>
         <td class="col-customer"><input type="number" id="weightcp1" value="0" readonly></td>
-        <td class="col-cp"><input type="number" id="weightcp2" value="115"></td>
+        <td class="col-cp"><input type="number" id="weightcp2" value="105.80" readonly></td>
     </tr>
     <tr>
         <td>ราคาหมูเป็น (บาท)</td>
@@ -47,6 +47,15 @@
 
 <div>
     <div class="section-title">น้ำหนักที่ได้ (กก.)</div>
+    <div class="percent-dropdown" style="margin-bottom: 16px;">
+  <label for="lossPercent"><strong>เลือกเปอร์เซ็นต์น้ำหนักสูญเสีย:</strong></label>
+  <select id="lossPercent" onchange="calculate()">
+    <option value="8">8%</option>
+    <option value="10">10%</option>
+    <option value="12">12%</option>
+    <option value="15">15%</option>
+  </select>
+</div>
 <table class="pig-weight-table">
     <tr>
         <th>รายการ</th>
@@ -74,8 +83,12 @@
 <div>
 <div class="note">
   <strong>หมายเหตุ:</strong>
-  <span class="black-bold"> หมูเป็น </span>จะสูญเสียน้ำหนักประมาณ <span class="red-underline"><strong>8%</strong></span> ระหว่างขั้นตอนการเชือด
-  จาก <span class="red-underline">เลือด ขน กีบ และของเสียต่างๆ</span> ทำให้น้ำหนักสุทธิเหลือประมาณ <span class="black-bold"><strong>92%</strong></span>
+  <span class="black-bold"> หมูเป็น </span>จะสูญเสียน้ำหนักประมาณ 
+  <span class="red-underline"><strong id="lossPercentText">8%</strong></span> 
+  ระหว่างขั้นตอนการเชือด จาก 
+  <span class="red-underline">เลือด ขน กีบ และของเสียต่างๆ</span> 
+  ทำให้น้ำหนักสุทธิเหลือประมาณ 
+  <span class="black-bold"><strong id="remainPercentText">92%</strong></span> 
   ของน้ำหนักหมูเป็น
 </div>
 </div>

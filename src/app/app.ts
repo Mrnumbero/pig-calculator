@@ -50,6 +50,13 @@ export function calculate(): void {
     // const weightcp3 = parseFloat(weightcp3Input.value);
 
     // If weightcp3 or half3 is filled, calculate column 3 like CP
+    const lossPercentInput = document.getElementById('lossPercent') as HTMLSelectElement;
+    const lossPercent = lossPercentInput ? parseFloat(lossPercentInput.value) : 8;
+    const remainPercent = 100 - lossPercent;
+
+    (document.getElementById('lossPercentText') as HTMLElement).innerText = `${lossPercent}%`;
+    (document.getElementById('remainPercentText') as HTMLElement).innerText = `${remainPercent}%`;
+
     let weights = [
         parseFloat((document.getElementById('weight1') as HTMLInputElement).value),
         parseFloat((document.getElementById('weightcp2') as HTMLInputElement).value),
@@ -67,11 +74,15 @@ export function calculate(): void {
     //     prices[2] = half3;
     // }
 
-    const remains = weights.map(w => (w * 0.92).toFixed(1));
+    const remains = weights.map(w => (w * (remainPercent / 100)).toFixed(1));
     const losses = weights.map((w, i) => (w - parseFloat(remains[i])).toFixed(1));
 
     (document.getElementById('remain1') as HTMLElement).innerText = formatNumberWithComma(remains[0]);
-    (document.getElementById('remain2') as HTMLElement).innerText = formatNumberWithComma(weights[1].toString());
+
+    // Set weightcp2 input value to remain1 (unformatted, for calculation)
+    (document.getElementById('weightcp2') as HTMLInputElement).value = Number(remains[0]).toFixed(2);
+
+    (document.getElementById('remain2') as HTMLElement).innerText = formatNumberWithComma((document.getElementById('weightcp2') as HTMLInputElement).value);
     // (document.getElementById('remain3') as HTMLElement).innerText = weightcp3 !== 0 ? weights[2].toString() : remains[2];
     (document.getElementById('loss1') as HTMLElement).innerText = formatNumberWithComma(losses[0]);
     (document.getElementById('loss2') as HTMLElement).innerText = '0';
