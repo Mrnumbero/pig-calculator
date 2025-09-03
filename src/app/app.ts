@@ -82,7 +82,11 @@ export function calculate(): void {
     // Set weightcp2 input value to remain1 (unformatted, for calculation)
     (document.getElementById('weightcp2') as HTMLInputElement).value = Number(remains[0]).toFixed(2);
 
-    (document.getElementById('remain2') as HTMLElement).innerText = formatNumberWithComma((document.getElementById('weightcp2') as HTMLInputElement).value);
+    // Update weights[1] to match the new value of weightcp2
+    weights[1] = parseFloat((document.getElementById('weightcp2') as HTMLInputElement).value);
+
+    // Now remain2 will always match weightcp2
+    (document.getElementById('remain2') as HTMLElement).innerText = formatNumberWithComma(weights[1]);
     // (document.getElementById('remain3') as HTMLElement).innerText = weightcp3 !== 0 ? weights[2].toString() : remains[2];
     (document.getElementById('loss1') as HTMLElement).innerText = formatNumberWithComma(losses[0]);
     (document.getElementById('loss2') as HTMLElement).innerText = '0';
