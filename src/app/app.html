@@ -57,7 +57,7 @@
                 <option value="10">10%</option>
                 <option value="12">12%</option>
                 <option value="15">15%</option>
-  </select>
+                </select>
             </div>
             <table class="pig-weight-table">
                 <tr>
@@ -152,8 +152,8 @@
                 <tr>
                     <th class="col-head">รายการ</th>
                     <th class="fcost-detail">รายละเอียด</th>
-                    <th class="col-customer">ราคาหมูเป็น (บาท)</th>
-                    <th class="col-cp">ราคาหมูซีกรวมหัวเครื่องใน CP (บาท)</th>
+                    <th class="col-customer">ต้นทุนหมูเป็น (บาท)</th>
+                    <th class="col-cp">ต้นทุนหมูซีกรวมหัวเครื่องใน CP (บาท)</th>
                 </tr>
                 <tr>
                     <td class="col-head">หมู</td>
@@ -174,7 +174,39 @@
                 </tr>
             </table>
         </div>
+        <div>
+            <div class="section-title">สรุปกำไรที่ได้ (ต่อตัว)</div>
+            <div class="percent-dropdown" style="margin-bottom: 16px;">
+                <label for="avg-price"><strong>ราคาขายเฉลี่ย (บาท):</strong></label>
+                <input class="fill-price" type="number" id="fillprice" value="100">
+            </div>
 
+            <table class="pig-cost-table">
+                <tr>
+                    <th class="col-head">รายการ</th>
+                    <th class="fcost-detail">รายละเอียด</th>
+                    <th class="col-customer">ต้นทุนหมูเป็น (บาท)</th>
+                    <th class="col-cp">ต้นทุนหมูซีกรวมหัวเครื่องใน CP (บาท)</th>
+                </tr>
+                <tr>
+                    <td class="col-head">รายได้จากหมู (ต่อตัว)</td>
+                    <td class="fcost-price">น้ำหนักหมูหลังเข้าเชือด (กก.) x ราคาขายเฉลี่ย</td>
+                    <td class="col-customer" id="pigPrice1">0</td>
+                    <td class="col-cp" id="pigPrice2">0</td>
+                </tr>
+                <tr>
+                    <td class="col-head">ต้นทุนหมูรวม</td>
+                    <td class="fcost-hidden">ต้นทุนหมู (ต่อตัว) + ต้นทุนแฝง</td>
+                    <td class="col-customer" id="totalCost3">0</td>
+                    <td class="col-cp" id="totalCost4">0</td>
+                </tr>
+                <tr>
+                    <th class="col-head" colspan="2">กำไรที่จะได้ (ต่อตัว)</th>
+                    <th class="col-customer" id="pigProfit1">0</th>
+                    <th class="col-cp" id="pigProfit2">0</th>
+                </tr>
+            </table>
+        </div>
         <div>
             <button onclick="calculate()">คำนวณ</button>
         </div>
