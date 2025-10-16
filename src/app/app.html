@@ -32,7 +32,7 @@
                 <tr>
                     <td class="col-head">น้ำหนักหมูซีกรวมหัวเครื่องใน CP (กก.)</td>
                     <td class="col-customer"><input class="disabled" type="number" id="weightcp1" value="0" readonly></td>
-                    <td class="col-cp"><input class="disabled" type="number" id="weightcp2" value="105.80" readonly></td>
+                    <td class="col-cp"><input class="fill-up" type="number" id="weightcp2" value="105.80"></td>
                 </tr>
                 <tr>
                     <td class="col-head">ราคาหมูเป็น (บาท)</td>
@@ -51,13 +51,30 @@
         <div>
             <div class="section-title">น้ำหนักที่ได้ (กก.)</div>
             <div class="percent-dropdown" style="margin-bottom: 16px;">
-                <label for="lossPercent"><strong>เลือกเปอร์เซ็นต์น้ำหนักสูญเสีย:</strong></label>
-                <select id="lossPercent" onchange="calculate()">
-                <option value="8">8%</option>
-                <option value="10">10%</option>
-                <option value="12">12%</option>
-                <option value="15">15%</option>
-                </select>
+                <label for="lossPercentSlider"><strong>น้ำหนักสูญเสีย:</strong></label>
+                <input
+                    type="range"
+                    id="lossPercentSlider"
+                    min="8"
+                    max="15"
+                    step="1"
+                    value="8"
+                    oninput="document.getElementById('lossPercentBox').value = this.value; calculate();"
+                >
+                <input
+                    type="number"
+                    id="lossPercentBox"
+                    min="8"
+                    max="15"
+                    step="1"
+                    value="8"
+                    oninput="
+                        let v = Math.max(0, Math.min(20, parseInt(this.value) || 0));
+                        this.value = v;
+                        document.getElementById('lossPercentSlider').value = v;
+                        calculate();
+                    "
+                > %
             </div>
             <table class="pig-weight-table">
                 <tr>
@@ -178,15 +195,16 @@
             <div class="section-title">สรุปกำไรที่ได้ (ต่อตัว)</div>
             <div class="percent-dropdown" style="margin-bottom: 16px;">
                 <label for="avg-price"><strong>ราคาขายเฉลี่ย (บาท):</strong></label>
-                <input class="fill-price" type="number" id="fillprice" value="100">
+                <input class="fill-price" type="number" id="fillprice" value="">
+                <span id="fillprice-warning" style="color: #d32f2f; margin-left: 12px; font-size: 0.95em;">*กรุณากรอกราคาขาย</span>
             </div>
 
             <table class="pig-cost-table">
                 <tr>
                     <th class="col-head">รายการ</th>
                     <th class="fcost-detail">รายละเอียด</th>
-                    <th class="col-customer">ต้นทุนหมูเป็น (บาท)</th>
-                    <th class="col-cp">ต้นทุนหมูซีกรวมหัวเครื่องใน CP (บาท)</th>
+                    <th class="col-customer">หมูเป็น (บาท)</th>
+                    <th class="col-cp">หมูซีกรวมหัวเครื่องใน CP (บาท)</th>
                 </tr>
                 <tr>
                     <td class="col-head">รายได้จากหมู (ต่อตัว)</td>
