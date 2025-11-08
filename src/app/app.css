@@ -457,3 +457,83 @@ input[class="fill-price"] {
         min-width: 120px;
     }
 }
+
+.submit-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;       /* center horizontally */
+  justify-content: center;   /* center vertically within its own block */
+  gap: 8px;
+  margin: 24px auto 0;       /* center the whole block */
+}
+
+.submit-row {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.submit-message {
+  text-align: center;        /* center text under the button */
+}
+
+.msg-success {
+  font-size: 0.95em;
+  color: #1976d2;
+  display: block;
+  margin-top: 4px;
+}
+
+.msg-warning {
+  font-size: 0.95em;
+  color: #d32f2f;
+  display: block;
+  margin-top: 4px;
+}
+
+/* CV & Sales ID form section */
+.cv-form {
+  width: 100%;
+  max-width: 480px;
+  margin: 24px auto 32px auto;
+  padding: 24px 28px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  border: 1.5px solid #e3f2fd;
+  box-shadow: 0 4px 12px rgba(25, 118, 210, 0.05);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.cv-form label {
+  font-weight: 600;
+  color: #1976d2;
+  margin-bottom: 4px;
+  font-size: 1.05em;
+}
+
+.cv-input {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1.5px solid #b3d7f5;
+  border-radius: 6px;
+  font-size: 1em;
+  box-sizing: border-box;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  text-align: left;
+}
+
+.cv-input:focus {
+  border-color: #1976d2;
+  box-shadow: 0 0 0 3px rgba(25, 118, 210, 0.1);
+  outline: none;
+}
+
+.cv-input:invalid {
+  border-color: #e57373;
+}
+
+.cv-form button {
+  margin-top: 12px;
+}

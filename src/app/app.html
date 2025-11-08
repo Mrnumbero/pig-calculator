@@ -16,6 +16,26 @@
     </div>
     <div class="main-container">
         <div class="main-content">
+            <form #cvForm="ngForm" class="cv-form">
+                <label for="cvCode">รหัสพนักงานขาย</label>
+                <input
+                    [(ngModel)]="cvCode"
+                    name="cvCode"
+                    id="cvCode"
+                    required
+                    class="cv-input"
+                />
+
+                <label for="salesId">รหัสลูกค้า</label>
+                <input
+                    [(ngModel)]="salesId"
+                    name="salesId"
+                    id="salesId"
+                    required
+                    class="cv-input"
+                />
+            </form>
+
             <div class="section-title">ข้อมูลหมู</div>
             <table class="pig-data-table">
                 <tr>
@@ -231,7 +251,31 @@
             </table>
         </div>
         <div>
-            <button onclick="calculate()">คำนวณ</button>
+            <div class="submit-area">
+                <div class="submit-row">
+                <button
+                    type="button"
+                    (click)="submit(true)"
+                    [disabled]="loading"
+                    >
+                    {{ loading ? 'Saving...' : 'คำนวณ & บันทึกการใช้งาน' }}
+                </button>
+                </div>
+
+            <div class="submit-message">
+            <span *ngIf="!loading && message" class="msg-success">
+                {{ message }}
+            </span>
+
+            <span
+                *ngIf="!loading && !message && (cvCode === '' || salesId === '')"
+                class="msg-warning"
+                >
+                *กรุณากรอก CV Code และ Sales ID หากต้องการบันทึก
+            </span>
+            </div>
+        </div>
+
         </div>
     </div>
 
