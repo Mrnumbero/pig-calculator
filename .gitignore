@@ -40,3 +40,10 @@ testem.log
 # System files
 .DS_Store
 Thumbs.db
+
+# sensitive / local config (do not commit API keys)
+.env
+.env.local
+firebase-config.json
+secrets.json
+src/environments/*.local.ts
