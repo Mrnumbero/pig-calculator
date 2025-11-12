@@ -17,20 +17,21 @@
     <div class="main-container">
         <div class="main-content">
             <form #cvForm="ngForm" class="cv-form">
-                <label for="cvCode">รหัสพนักงานขาย</label>
-                <input
-                    [(ngModel)]="cvCode"
-                    name="cvCode"
-                    id="cvCode"
-                    required
-                    class="cv-input"
-                />
 
-                <label for="salesId">รหัสลูกค้า</label>
+                <label for="salesId">รหัสพนักงานขาย</label>
                 <input
                     [(ngModel)]="salesId"
                     name="salesId"
                     id="salesId"
+                    required
+                    class="cv-input"
+                />
+
+                <label for="cvCode">รหัสลูกค้า/ชื่อร้านค้า</label>
+                <input
+                    [(ngModel)]="cvCode"
+                    name="cvCode"
+                    id="cvCode"
                     required
                     class="cv-input"
                 />

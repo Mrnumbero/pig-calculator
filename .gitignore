@@ -47,3 +47,5 @@ Thumbs.db
 firebase-config.json
 secrets.json
 src/environments/*.local.ts
+API_KEY=YOUR_API_KEY_HERE
+PROJECT_ID=your_project_id
