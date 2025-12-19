@@ -154,6 +154,12 @@ export function calculate(): void {
   (document.getElementById('totalCost3') as HTMLElement).innerText = formatNumberWithComma(totalCost1.toFixed(2));
   (document.getElementById('totalCost4') as HTMLElement).innerText = formatNumberWithComma(totalCost2.toFixed(2));
 
+  const pigCostPerKg1 = weights[0] ? totalCost1 / weights[0] : 0;
+  const pigCostPerKg2 = weights[1] ? totalCost2 / weights[1] : 0;
+  
+  (document.getElementById('pigCostPerKg1') as HTMLElement).innerText = formatNumberWithComma(pigCostPerKg1.toFixed(2));
+  (document.getElementById('pigCostPerKg2') as HTMLElement).innerText = formatNumberWithComma(pigCostPerKg2.toFixed(2));
+
   const pigProfit1 = pigPrice1 - totalCost1;
   const pigProfit2 = pigPrice2 - totalCost2;
 
